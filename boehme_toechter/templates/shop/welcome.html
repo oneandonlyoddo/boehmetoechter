@@ -1,0 +1,44 @@
+{% extends "shop/base.html" %}
+{% load url from future %}
+{% load shop_tags %}
+{% cart %}
+{% products %}
+{% products object_list %}
+
+{% block body %}
+<div class="shopcontainer">
+</div>
+<div class="weingutscrollcontent">
+  <div class="center">
+    {{ category }}
+  {% for object in object_list %}
+  <a href="{% url 'product_detail' object.slug %}">
+  <div class="produkt">
+<img src="{{MEDIA_URL}}{{object.img}}" alt="{{object.get_name}} - Weingut Böhme Töchter Produktbild">
+
+  
+
+  <p>{{object.get_name}}</p>
+
+{% if object.active %}
+
+  
+  <form method="post" action="{% url 'cart' %}">{% csrf_token %}
+  <input type="hidden" name="add_item_id" value="{{object.pk}}">
+  <input type="hidden" name="add_item_quantity" value="1">
+  <input type="submit" value="{{object.unit_price}} € -> Warenkorb" class="warenkorbButton">
+  </form>
+  {% else %}
+  <div class="ausgetrunken">Ausgetrunken</div>
+{% endif %}
+
+</div> 
+</a>
+  {% endfor %}
+    {% if cart_items %}
+  {{cart.total_price}}
+  {% endif %}
+ </div>
+  </div>
+
+{% endblock %}

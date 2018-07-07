@@ -1,0 +1,1668 @@
+
+
+@font-face{
+font-family:"ITC Century W01 Book";
+src:url("./fonts/88179ea2-86e8-4284-9f0b-ae5da60c327a.eot?#iefix");
+src:url("./fonts/88179ea2-86e8-4284-9f0b-ae5da60c327a.eot?#iefix") format("eot"),url("./fonts/542ac53f-a0a5-44ac-ac30-822ce4bcbb3a.woff") format("woff"),url("./fonts/12b6113f-0423-452d-9283-39e4cc801e08.ttf") format("truetype"),url("./fonts/4c5c3973-f73f-474c-944e-5277dfd4ec29.svg#4c5c3973-f73f-474c-944e-5277dfd4ec29") format("svg");
+}
+
+@font-face{
+font-family:"ITC Century W01 Bold";
+src:url("./fonts/19f404b4-3347-4260-a106-0b27c3fc622c.eot?#iefix");
+src:url("./fonts/19f404b4-3347-4260-a106-0b27c3fc622c.eot?#iefix") format("eot"),url("./fonts/48bc6d9a-821f-4d40-ae05-4023923a5a2e.woff") format("woff"),url("./fonts/087e94de-ca17-4b94-b586-3b488af3d98b.ttf") format("truetype"),url("./fonts/e42959cf-e4aa-48b4-9f48-ebdf50829410.svg#e42959cf-e4aa-48b4-9f48-ebdf50829410") format("svg");
+}
+
+body{
+	background: #D5D2B4;
+	/*margin: 50px 60px;*/
+	margin:0px;
+	background:url("./img/pattern-main.gif") fixed;
+	text-rendering: optimizeLegibility;
+	-moz-font-feature-settings: "lnum";
+    -ms-font-feature-settings: "lnum";
+    -webkit-font-feature-settings: "lnum";
+    -o-font-feature-settings: "lnum";
+    font-feature-settings: "lnum";
+    -webkit-font-smoothing:antialiased
+
+
+	
+}
+
+
+
+h1{
+	font-family:'ITC Century W01 Book';
+	font-weight: normal;
+	text-transform: uppercase;
+	/*font-size: 43px;*/
+	font-size: 40px;
+	margin:20px 0px;
+	line-height: 50px;
+	color:#433B35;
+
+}
+
+h1 span{
+	font-family:'ITC Century W01 Bold';
+}
+
+h5{
+	font-family:'ITC Century W01 Bold';
+	font-weight: normal;
+	text-transform: uppercase;
+	/*font-size: 43px;*/
+	font-size: 40px;
+	margin:20px 0px;
+	line-height: 50px;
+	color:#433B35;
+
+}
+
+
+
+.description{
+	
+/* 	width:57.7%; */
+	width:57%;
+	margin-top: 57px;
+	/*padding:67px 120px 80px 30px;*/
+float: left;
+	/*overflow: hidden;*/
+	max-width: 600px;
+	min-width: 200px;
+	margin-bottom: 40px;
+}
+
+.description p span{
+font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	/*font-size: 14px;*/
+	font-size: 17px;
+	text-transform: uppercase;
+	font-weight: normal;
+	margin:0px;
+	line-height: 27px;
+	letter-spacing:1px;
+
+}
+
+.description h1{
+	margin-bottom: 24px;
+}
+
+
+.description p{
+	margin-bottom: 30px;
+}
+
+
+.lagedescription p{
+	margin-bottom: 5px;
+	margin-top:6px;
+	color:#fff;
+}
+
+
+h2{
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	/*font-size: 14px;*/
+	font-size: 17px;
+	text-transform: uppercase;
+	font-weight: normal;
+	margin-top:30px;
+	line-height: 30px;
+	letter-spacing:1px;
+
+}
+
+h3{
+	font-family:'ITC Century W01 Book';
+	font-size: 24px;
+	font-weight: normal;
+	margin-top:22px;
+	line-height: 30px;
+}
+
+h4{
+	font-family:'ITC Century W01 Bold';
+	font-size: 24px;
+
+	margin-top:20px;
+	
+	line-height: 30px;
+}
+
+p{
+	font-family:'ITC Century W01 Book';
+	font-size: 24px;
+	font-weight: normal;
+	margin-top:4px;
+	margin-bottom: 36px;
+	line-height: 30px;
+}
+
+.familienbild{
+	width: 34.5%;
+	/*overflow: hidden;*/
+	float: left;
+	/*padding:0px 30px 0px 120px;*/
+	margin-right: 60px;
+
+	
+}
+
+.familienbild img{
+	width:100%;
+
+	margin-top:250px;
+
+	
+}
+
+.plugin_picture p{
+	margin-top :10px;
+}
+
+.bildunterschrift{
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: normal;
+	line-height: 20px;
+	letter-spacing:1px;
+	text-align: center;
+
+}
+
+.menucontainer{
+	
+	width: 110px;
+	list-style: none;
+	
+	position: fixed;
+	top:30px;
+	left:30px;
+
+	
+}
+.menucontainerHome{
+	background:url("./img/pattern-pixel-dark-brown.png");
+	width: 110px;
+	list-style: none;
+	padding:7px 15px 2px 15px; 
+	position: fixed;
+	top:20px;
+	left:15px;
+	background-color: rgba(118,107,104,.7);
+	
+	
+}
+
+.menucontainerHome li.descendant a{
+	text-decoration: none;
+	color: #fff;
+}
+
+.menucontainerAlt{
+	
+
+	list-style: none;
+	position: fixed;
+	top:28px;
+	left:30px;
+	width: 150px;
+
+	
+}
+
+.smallmenu a{
+	
+font-size: 11px;
+line-height: 10px;
+	
+	
+}
+
+.smallmenu{
+	margin-top: 20px;
+	
+}
+
+.menucontainerAlt .smallmenu li{
+	line-height: 20px;
+}
+
+.menucontainer li, .menucontainerAlt li,.menucontainerHome li{
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	/*margin-bottom: 6px;*/
+	letter-spacing: 1px;
+	width:100px;
+	line-height: 20px;
+	
+}
+
+.menucontainerAlt li .selected, .menucontainerAlt li .sibling{
+	width:150px;
+}
+
+
+
+li.descendant a{
+	text-decoration: none;
+	color: #7B7E7D;
+
+}
+
+
+
+.menucontainer a, .menucontainerAlt a{
+	text-decoration: none;
+	color: #7B7E7D;
+
+}
+
+.menucontainer a:hover, .menucontainerAlt a:hover{
+	text-decoration: none;
+	color: #000;
+
+}
+
+.menucontainer ul,.menucontainerAlt ul{
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	list-style: none;
+	}
+
+
+li.sibling a{
+	text-decoration: none;
+	color: #7B7E7D;
+
+}
+
+li.ancestor ul, li.selected ul {
+	padding-left: 10px;
+	
+}
+
+li.ancestor ul a,li.selected ul a{
+	line-height: 10px;
+	font-size: 11px;
+}
+
+
+
+
+.selected a, .ancestor a{
+	text-decoration: none;
+	color: #000;
+
+}
+
+
+
+
+.logoHomeContainer{
+	
+	vertical-align: middle;
+	display: table;
+	height:100%;
+	margin:0 auto;
+	
+
+}
+
+.logoHome{
+	
+display: table-cell;
+	width: 100%;
+
+vertical-align: middle;
+position: relative;
+text-align: center;
+
+}
+
+.logoRechts{
+
+	position: fixed;
+	right: 50px;
+	height: 100%;
+	width:28px;
+	vertical-align: middle;
+	display: table;
+
+
+	/*font-size: 30px;
+	font-family: jigsawR;
+	color:#000;
+	letter-spacing: 0.15em;
+-webkit-transform: rotate(-90deg);
+    -webkit-transform-origin: bottom right;   
+    -moz-transform: rotate(-90deg);
+    -moz-transform-origin: bottom right; 
+    -o-transform: rotate(-90deg);
+    -o-transform-origin: bottom right; 
+    -ms-transform: rotate(-90deg);
+    -ms-transform-origin: bottom right; 
+    transform: rotate(-90deg);
+    transform-origin: bottom right;  
+    */
+
+/* Internet Explorer */
+/*
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+position: fixed;
+
+
+	display:block;
+	text-align: center;
+	width:100%;
+	right:45px;*/
+
+}
+
+.logoRechtsInner{
+	display: table-cell;
+	width: 100%;
+
+vertical-align: middle;
+position: relative;
+text-align: center;
+
+
+}
+
+.logoRechts img{
+	display: inline;
+vertical-align: middle;
+	
+}
+
+.weingutcontainer{
+	background:#D8D4B9;
+	
+	position:fixed;
+	z-index: -10;
+	margin:50px 60px;
+	
+
+
+}
+
+.newscontainer{
+	background:#fff;
+	
+	position:fixed;
+	z-index: -10;
+	margin:50px 60px;
+	
+
+
+}
+
+
+.weingutcontainer:after{
+	content:".";
+	clear: both;
+	display: block;
+	visibility: hidden;
+}
+
+.weingutscrollcontent{
+	position: absolute;
+	top:0;
+	left:0;
+	/*padding:50px 60px;*/
+	width:100%;
+}
+
+.aktuelleswrapper{
+width:70%;
+position:relative;
+left: 15%;
+}
+
+.blogeintraege{
+	width:66%;
+	float:left;
+	margin-right: 30px;
+	margin-top: 40px;
+}
+.termine{
+	width:29%;
+	float:left;
+	margin-top: 40px;
+}
+
+.termine a {
+  border-bottom: solid 1px #000;
+  text-decoration: none;
+  color: black;
+}
+
+.termine a:hover {
+  border: none;
+}
+
+
+.termine h2{
+	color:#B15C35;
+	margin-top: 11px;
+	margin-bottom: 0px;
+}
+
+.events h2{
+	font-size: 11px;
+	margin-top: 22px;
+	margin-bottom: 5px;
+	line-height: 10px;
+}
+
+.events p{
+	font-size: 14px;
+	margin-top: 0;
+	line-height: 20px;
+	margin-bottom: 25px;
+}
+
+.termineborder{
+	width:100%;
+	height:10px;
+	background:url("./img/pattern-pixel-red.png");
+}
+
+
+
+.blogeintraege a{
+	font-family:'ITC Century W01 Bold';
+	font-size: 24px;
+	font-weight: normal;
+	line-height: 30px;
+	color:#000;
+	text-decoration: none;
+	margin-top: 50px;
+
+}
+
+.blogeintrag{
+	margin-bottom: 31px;
+}
+
+.blogeintrag:hover{
+background:url("./img/pattern-pixel-light-brown.png");
+
+}
+.blogeintrag:after{
+	content:".";
+	display:block;
+	visibility:hidden;
+}
+
+.blogeintragMeta{
+	padding:10px 0px 0px 0px;
+
+}
+
+.center{
+	width:76.5%;
+/*position:relative;*/
+	/*left: 11.75%;*/
+	margin:0 auto;
+	height:200px;
+}
+
+.textseiteTextfeld{
+	background-color:#8F867F;
+	
+
+	padding:3px 15px 10px 15px;
+	
+	margin-bottom: 30px;
+
+	
+}
+
+.textseitenContainer{
+		
+	width:41%;
+	min-width: 300px;
+	max-width: 600px;
+
+	
+	margin-top: 30px;
+	
+	position:relative;
+	float:left;
+	left: 29.5%;
+	
+}
+
+.warenkorb{
+	background-color:#fff;
+	
+font-family:"ITC Century W01 Book";
+	font-size: 20px;
+	padding:3px 15px 20px 15px;
+	
+	margin-bottom: 30px;
+
+
+	
+}
+
+.warenkorbitems{
+border-bottom: solid 1px #DEDDDC;
+width:100%;
+margin-bottom: 10px;
+
+}
+
+.summarytable{
+	width:100%;
+	margin-bottom: 13px;
+}
+
+.warenkorb:after{
+	content:".";
+	display:block;
+	visibility:hidden;
+}
+
+.warenkorbContainer{
+		
+	width:64.7%;
+	min-width: 480px;
+	max-width: 800px;
+
+	
+	margin-top: 30px;
+	
+	position:relative;
+	float:left;
+	left: 20.5%;
+	
+}
+
+
+.warenkorb h2{
+	margin-top: 15px;
+	margin-bottom: 8px;
+	border-bottom: solid 1px #DEDDDC;
+	font-size: 14px;
+	padding-bottom: 3px;
+	line-height: 20px;
+}
+
+.warenkorb h2 a{
+	color:#DEDDDC;
+	text-decoration: none;
+}
+
+.warenkorb h2 a:hover{
+	color:#000;
+}
+
+.warenkorb h2 span{
+	color:#DEDDDC;
+}
+
+
+.tableItems{
+	width:95%;
+	float:left;
+}
+
+.tableDelete{
+	width:5%;
+	float:right;
+	text-align: right;
+}
+
+.warenkorb .tableDelete td{
+	vertical-align: top;
+	padding-top:1px;
+}
+
+.tableDelete input[type="submit"] {
+	border:none;
+	background:#fff;
+	color:#B00004;
+	font-size: 30px;
+	height:20px;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	padding: 0px;
+	line-height: 20px;
+}
+
+.tableDelete input[type="submit"]:hover {
+	cursor:pointer;
+}
+
+.warenkorb td{
+	vertical-align: top;
+	padding-top: 4px;
+}
+
+.warenkorb tr {
+
+
+	height:30px;
+}
+
+
+.preis {
+	text-align: right;
+}
+
+.preisfett{
+	font-family:'ITC Century W01 Bold';
+}
+
+.quantity{
+	
+
+}
+
+td.quantity{
+	vertical-align: top;
+	padding:0px;
+	table-layout: fixed;
+	width:30px;
+}
+
+
+
+.tablewrapper:after{
+	content:".";
+	visibility:hidden;
+	display:block;
+	clear: both;
+	margin-bottom: -20px;
+}
+
+.total{
+	margin-bottom: 38px;
+	margin-top: 12px;
+	width:100%;
+}
+
+.quantity input[type="text"]{
+	width: 20px;
+	text-align: center;
+background-color: #F5F2E9;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	height:12px;
+	padding:0;
+	letter-spacing: 1px;
+	font-size: 14px;
+	padding-top:4px;
+}
+
+.warenkorb label{
+	visibility:hidden;
+	display:none;
+}
+
+.lieferadresse input[type="text"]{
+	background-color: #F5F2E9;
+	-moz-border-radius: 2px;
+border-radius: 2px;
+font-family:"ITC Century W01 Book";
+height:20px;
+font-size: 20px;
+color:#87888A;
+margin-right:10px;
+margin-bottom: 9px;
+padding:7px 10px 0px 10px;
+
+}
+
+.lieferadresse h2{
+	border: none;
+	padding:0px;
+	margin-bottom: 3px;
+	margin-top:15px;
+	
+
+
+
+}
+.zahlungsart{
+	font-family:"ITC Century W01 Book";
+
+font-size: 20px;
+border-bottom: solid 1px #DEDDDC;
+margin-bottom: 10px;
+
+}
+
+.acceptAGB{
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	font-size: 14px;
+	text-transform: uppercase;
+		margin-bottom: 20px;
+}
+
+.acceptAGB a{
+	color:#000;
+	border-bottom: solid 1px #000;
+	text-decoration: none;
+}
+
+.acceptAGB a:hover{
+	border:none;
+
+}
+
+.lieferadresse{
+	border-bottom: solid 1px #DEDDDC;
+	margin-top:-9px;
+	
+	margin-bottom: 13px;
+}
+
+
+.warenkorbButton{
+	background-color: #F0ECE0;
+
+	height:10px;
+	padding:7px 15px 23px 15px;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 14px;
+	border: none;
+	display:table-cell;
+	vertical-align: middle;
+	color:#000;
+	text-decoration: none;
+}
+
+.produkt .warenkorbButton{
+	margin:0 auto;
+	display:inline-block;
+	height:20px;
+	padding:4px 5px 6px 5px;
+	font-size: 11px;
+}
+
+.warenkorbButton:hover{
+	background-color: #E2DCC6;
+	cursor:pointer;
+
+}
+
+.ausgetrunken{
+	margin:0 auto;
+	display:inline-block;
+	height:10px;
+	padding:6px 5px 4px 5px;
+	background-color: #F0ECE0;
+	color:#A5A9AC;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 11px;
+}
+
+.produktdetail .ausgetrunken{
+	
+
+	height:10px;
+	padding:10px 15px 5px 15px;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 14px;
+	border: none;
+	display:table-cell;
+	vertical-align: middle;
+	background-color: #F0ECE0;
+	color:#A5A9AC;
+	text-decoration: none;
+}
+
+a.warenkorbButton{
+	padding:10px 5px 0px 5px; 
+	height:20px;
+	width:auto;
+	white-space: nowrap;
+}
+
+
+#warenkorb{
+	width:95%;
+}
+#okay{
+	float:right;
+	width:90px;
+}
+
+#weitershoppen{
+	float:left;
+}
+#weitershoppenright{
+	float:right;
+	margin-right: 10px;
+
+}
+
+ #kasse{
+	float:right;
+}
+#aktualisieren{
+	position:absolute;
+	right:111px;
+/*	display:inline;*/
+
+}
+
+#bestellen{
+	float:right;
+}
+
+#close{
+	float:right;
+}
+
+#id_ship-vorname, #id_bill-vorname{
+	width:28.7%;
+}
+#id_ship-nachname,#id_bill-nachname{
+	width:39.4%;
+}
+
+#id_ship-street, #id_bill-street{
+	width:40.9%;
+}
+
+#id_ship-nr, #id_bill-nr{
+	width:9%;
+}
+
+#id_ship-zip_code, #id_bill-zip_code{
+	width:18.2%;
+}
+
+#id_ship-city,#id_bill-city{
+	width:40.9%
+}
+
+#id_ship-email,#id_bill-email{
+	width:40.9%
+}
+
+#rechnungsadresse{
+	display:none;
+}
+
+#seperate{
+	display:inline;
+}
+
+.lieferadresse select{
+	/*height:20px;
+	border-radius: 0px;
+	background-color: #E2DCC6;
+	border: none;*/
+	margin-bottom: 9px;
+
+}
+
+.lieferadresse p{
+	margin-bottom: 0px;
+}
+
+.lieferadresse span{
+	margin-right: 30px;
+	display:inline-block;
+}
+.lieferadresse td{
+	width:50%;
+}
+
+.lieferadresse tr{
+	vertical-align: bottom;
+}
+
+.lieferadresse table{
+	width:100%;
+
+}
+
+.shopcontainer{
+	margin:30px 0px 30px 150px;
+	background-color: #fff;
+
+	overflow:auto;
+	position:fixed;
+	z-index: -10;
+
+}
+
+a.kattab{
+	width:25%;
+	text-align: center;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 11px;
+	float:left;
+	height:17px;
+	text-decoration: none;
+	color: #7B7E7D;
+	display:table-cell;
+	vertical-align: middle;
+	padding-top: 13px;
+}
+
+
+
+.kattabsub{
+
+}
+
+a.kattab:hover, a.tabActive{
+	background:url("./img/pattern-main.gif");
+	color:#000;
+}
+
+.catdescr{
+	font-size: 20px;
+	margin-top: 23px;
+	margin-bottom: 19px;
+}
+
+.catdescr span{
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.produktliste{
+	padding:30px;
+
+}
+
+
+
+.produktbildcontainer{
+	
+	width:29.4%;
+
+	float:left;
+	/*height:100%;*/
+}
+
+.produktbild{
+	height:100%;
+}
+
+.produktbild img{
+	/*height:100%;*/
+	max-width: 100%;
+	margin:0 auto;
+	display:block;
+	max-height: 100%;
+	
+}
+
+.miniwarenkorb{
+	
+	background-color: #fff;
+	z-index: -2000;
+	position:relative;
+	top:340px;
+float:left;
+padding:15px;
+color:#DEDDDC;
+font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	font-size: 11px;
+	line-height: 20px;
+	background: url("./img/minicartbg.gif")repeat-y;
+	width:auto;
+
+
+}
+
+.miniwarenkorb:hover{
+	z-index: 2000;
+	background:#fff;
+	-webkit-box-shadow: 4px 2px  #dadada,  -4px 0 2px #dadada;   
+-moz-box-shadow: 4px 0 2px #dadada,  -4px 0 2px #dadada;   
+box-shadow: 4px 0 2px #dadada,  -4px 0 2px #dadada; 
+	
+
+}
+
+.miniwarenkorb h2{
+	
+	font-size: 11px;
+	line-height: 20px;
+	margin-top: 4px;
+	color:#000;
+margin-bottom: 2px;
+
+}
+.miniwarenkorb a{
+	color:#DEDDDC;
+	text-decoration: none;
+}
+
+.miniwarenkorb a:hover{
+	color:#000;
+	
+}
+
+.miniwarenkorb .warenkorbButton{
+	width:120px;
+	font-size: 11px;
+	margin:0;
+	padding:8px 0 3px 0;
+	text-align: center;
+	color:#000;
+
+
+}
+
+
+
+.miniwarenkorb .produkte{
+	border-bottom: solid 1px #DEDDDC;
+	border-top: solid 1px #DEDDDC;
+	padding-top:8px;
+	padding-bottom:1px;
+	margin-bottom: 7px;
+}
+
+.miniwarenkorb span{
+	display:block;
+}
+
+.produktaward img{
+	width:50%;
+	max-width: 141px;
+	margin:0 auto;
+	display:block;
+	max-height: 141px;
+}
+
+.produktawardsmall{
+	position:relative;
+	top:-150px;
+	width:180px;
+	margin-bottom: -90px;
+
+	
+}
+
+.produkt .produktawardsmall img{
+	width:90px;
+	height:90px;
+	margin:0 auto;
+	display:block;
+
+}
+
+
+
+.produktlabel{
+	position:absolute;
+	top:57%;
+	width:29.4%;
+}
+
+.produktaward{
+	position:absolute;
+	top:15%;
+	width:29.4%;
+}
+
+.produkt{
+	width:180px;
+	/*float:left;*/
+	height:260px;
+	text-align: center;
+	margin-bottom: 40px;
+	display:inline-block;
+}
+
+.produkt p{
+	color:#000;
+	margin-top:10px;
+	margin-bottom: 0px;
+}
+
+.produkt:hover{
+	background-color: #F0ECE0;
+}
+
+.produkt img{
+	margin:0 auto;
+	display:block;
+	/*width:150px;*/
+	height:190px;
+}
+
+.produktdetail{
+	float:left;
+	margin-top:48px;
+	width:51.85%;
+	margin-right: 30px;
+	
+}
+
+.produktdetail h1{
+	margin-top:0px;
+	margin-bottom: 0px;
+	}
+.produktdetail p{
+	margin-bottom: 20px;
+}
+
+.produktdetail .warenkorbButton{
+	font-size: 14px;
+	height:10px;
+	padding:6px 15px 24px 15px;
+	margin-left:-15px;
+}
+.produkt a{
+	text-decoration: none;
+}
+
+
+.awardDescription{
+	font-size: 14px;
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	line-height: 20px;
+	margin-top: 20px;
+	margin-bottom: 23px;
+}
+
+.kontaktcontainer{
+	/*margin:0px 30px 50px 210px;*/
+	height: 100%;
+	
+
+}
+
+#map_div{
+	width:100%;
+	height:500px;
+}
+
+.kontaktcontainerinner{
+
+width: 70%;
+position:relative;
+left:15%;
+/*height:200px;*/
+}
+
+.kontaktcontainer h2{
+	color:#000;
+	margin-top: 14px;
+	margin-bottom: 0px;
+	font-size: 14px;
+	line-height: 27px;
+
+}
+
+.kontaktformular{
+	background-color:#8F867F;
+
+	
+	float:left;
+	width:33.3%;
+	min-width: 100px;
+	max-width: 300px;
+
+}
+
+.kontaktformular h2{
+margin-bottom: 0;
+}
+
+.kontaktinner{
+	padding:0px 15px 20px 15px;
+}
+
+.kontaktinner label{
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	font-size: 11px;
+	text-transform: uppercase;
+	margin-top:8px;
+	margin-bottom: 2px;
+	line-height:20px;
+	color:#000;
+	letter-spacing: 1px;
+	display:block;
+}
+
+.kontaktinner p{
+	color: #fff;
+margin: 0px;
+line-height: 30px;
+
+}
+
+.kontakt{
+	background-color:#8F867F;
+	
+margin-right:30px;
+margin-bottom: 30px;
+width:62.5%;
+float:left;
+min-width: 250px;
+	
+max-width: 600px;
+	
+
+	margin-top: 30px;
+
+}
+
+.adresse{
+	padding:0px 15px;
+	margin-bottom: 10px;
+
+}
+
+
+
+
+
+.adresse p, .adresse a, .textseiteTextfeld p{
+	color:#fff;
+	font-family:'ITC Century W01 Book';
+	font-size: 20px;
+	font-weight: normal;
+	
+	margin-bottom: 0px;
+	line-height: 30px;
+	margin-top: 0px;
+}
+
+.kontaktformular{
+	margin-top: 30px;
+}
+
+
+.kontaktformular input[type="submit"] {
+font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+font-size: 11px;
+text-transform: uppercase;
+	float:right;
+	background-color: #fff;
+	border:none;
+	height:30px;
+	margin-top:8px;
+	margin-bottom: 10px;
+	padding:4px 10px 0px 10px;
+	
+
+letter-spacing: 1px;
+}
+
+.kontaktformular input[type="text"]{
+	width:94%;
+	height:27px;
+	border:none;
+	padding: 3px 3% 0px 3%;
+	margin-top:0px;
+	font-family: 'ITC Century W01 Book';
+	font-size: 14px;
+	line-height: 20px;
+	 -moz-box-shadow:    inset 0 0 6px gray;
+   -webkit-box-shadow: inset 0 0 6px gray;
+   box-shadow:         inset 0 0 6px gray;
+   margin-bottom: 10px;
+	
+
+}
+.kontaktformular textarea{
+	width:90%;
+	border:none;
+	padding: 7px 5%;
+	margin-top:0px;
+	margin-bottom: 0px;
+	font-family: 'ITC Century W01 Book';
+	font-size: 14px;
+	line-height: 20px;
+	height:206px;
+	 -moz-box-shadow:    inset 0 0 6px gray;
+   -webkit-box-shadow: inset 0 0 6px gray;
+   box-shadow:         inset 0 0 6px gray;
+}
+
+.freyburgEdel, .freyburgMuehl, .dorndorf{
+	width:100%;
+	
+	height: 100%;
+	
+	
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.lagecenter{
+width:360px;
+		vertical-align: middle;
+	display: table;
+	height: 100%;
+	margin:0 auto;
+}
+
+.freyburgEdel{
+background:url("./img/schweigenberg-2.jpg") no-repeat center center;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+}
+
+.freyburgMuehl{
+	background:url("./img/muehlberg-3.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.dorndorf{
+	background:url("./img/rappental-2.jpg") no-repeat center center;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+.lagecontainer{
+		
+
+
+	position:fixed;
+	z-index: -10;
+	margin:50px 60px;
+	background-color: #fff;
+	
+}
+
+
+
+
+.lagecontainer h1,.lagecontainer h2{
+	color:#fff;
+}
+
+.lage{
+	
+
+ 
+
+color:#fff;
+
+	
+	
+	
+
+	display: table-cell;
+	width: 100%;
+	height:300px;
+
+vertical-align: middle;
+position: relative;
+}
+
+.lagedescription{
+	background:url("./img/pattern-pixel-dark-brown.png");
+padding:10px 30px 20px 30px;
+
+}
+
+
+.textseiteTextfeld .auszeichnung h3{
+	color:#fff;
+	margin-bottom: -3px;
+
+}
+
+.textseiteTextfeld .auszeichnung h2{
+	color:#fff;
+margin-top: 10px;
+margin-bottom: 0px;
+line-height: 20px;
+}
+
+.auszeichnung p{
+	font-size: 14px;
+	line-height: 20px;
+	margin-top:0px;
+
+}
+
+.auszeichnung{
+	margin-bottom: 34px;
+}
+
+
+
+.textseiteTextfeld h2{
+	color:#000;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+.textseiteTextfeld h3{
+
+	margin-top: 9px;
+	margin-bottom: 21px;
+}
+
+
+.textseiteTextfeld h2 a{
+margin-top: 30px;
+	text-decoration: none;
+	color:#000;
+	border-bottom: solid thin #000;
+	
+}
+
+.textseiteTextfeld a, .adresse a{
+	color:#fff;
+	border-bottom: solid thin #fff;
+	text-decoration: none;
+}
+
+.description a{
+	color:#000;
+	border-bottom: solid thin #000;
+	text-decoration: none;
+}
+
+.textseiteTextfeld a:hover,.adresse a:hover, .description a:hover{
+	
+	border-bottom:none;
+
+}
+
+
+
+.textseiteTextfeld h2 a:hover{
+		border-bottom: none;
+	
+}
+
+
+.textseiteTextfeld p{
+	color:#fff;
+}
+
+
+.newsTrennlinie{
+	width:100%;
+	background:url("./img/pattern-pixel-light-brown.png");
+	height:10px;
+
+
+}
+.entry-title{
+	margin-bottom: 2px;
+}
+
+.entry-info p{
+	font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+	font-size: 17px;
+	text-transform: uppercase;
+	font-weight: normal;
+	margin:0px;
+	line-height: 30px;
+	
+	letter-spacing: 1px;
+}
+
+.entry-header{
+	margin-bottom: -1px;
+}
+
+.entry-body{
+	margin-top: 0px;
+}
+
+.entry-body a{
+	border-bottom: solid 1px #000;
+	font-family:"ITC Century W01 Book";
+}
+
+
+.entry-body a:hover{
+	border-bottom:none;
+}
+
+.entry-body p{
+	margin-top:30px;
+	margin-bottom: 10px;
+}
+
+.entry-content img{
+	max-width: 100%;
+
+
+}
+
+
+
+.entry-image img{
+width: 100%;	
+}
+
+.tooltip {
+  border-bottom: thin solid #fff;
+  color: #fff;
+  outline: none;
+  cursor: help;
+  text-decoration: none;
+  position: relative;
+}
+.tooltip p {
+  margin-left: -999em;
+  position: absolute;
+  color:#000;
+}
+
+.tooltip:hover p  {
+
+  position: absolute;
+  left: 100px;
+  top: -203px;
+  z-index: 99;
+  margin-left: 0;
+  width: 300px;
+  background-color: #E9DECE;
+}
+
+
+.classic { 
+padding: 10px 15px; 
+color:#000;
+font-family:'ITC Century W01 Book';
+font-size: 14px;
+line-height: 20px;
+}
+
+* html a:hover { background: transparent; }
+
+.classic span{
+color:#000;
+font-size: 11px;
+letter-spacing: 1px;
+font-family: "Jigsaw Medium 3"; font-style: normal; font-weight: normal; font-stretch: normal;
+text-transform: uppercase;
+}
+
+
+
+.day {
+	border-bottom: solid thin #000;
+
+}
+
+.gallery{
+width:100%;
+margin-left:12.5%;
+margin-bottom: -4px;
+
+
+
+}
+
+.blogeintraege .gallery a{
+	line-height: 0px;
+	border:none;
+}
+
+.gallery:after{
+	content:".";
+	display:block;
+	visibility:hidden;
+	
+	clear:both;
+	height:0px;
+}
+
+.galleryImageWrapper{
+	width:18.75%;
+	float:left;
+	margin-left:-12.5%;
+	position:relative;
+	
+}
+
+.gallery img{
+
+
+
+
+
+}
+
+
+

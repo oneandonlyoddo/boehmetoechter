@@ -1,0 +1,116 @@
+
+{% extends "shop/base.html" %}
+{% load url from future %}
+{% load mathe %}
+{% block body %}
+<div class="shopcontainer">
+
+
+  <div class="produktbildcontainer">
+    <div class="produktbild">
+     <img src="{{MEDIA_URL}}{{object.img}}" alt="{{object.get_name}} - Weingut Böhme Töchter Produktbild"> 
+   </div>
+   
+
+   {% if object.auszeichnung.all %}
+   
+   <div class="produktaward">
+     <img src="{{STATIC_URL}}img/preisgekroent-large.png" alt="{{object.get_name}} ist Preisgekrönt"> 
+   </div>
+
+   {% endif %}
+
+   
+ </div>
+ <div class="produktdetail" >
+  <h1><span>{{object.get_name}}</span></h1>
+  {% if object.lage %}
+  <h1>{{object.get_lage_display}}, {{object.jahrgang}}</h1>
+  {%else%}
+  <h1>{{object.jahrgang}}</h1>
+  {% endif %}
+  <div class="bukett">{% autoescape off %}
+    {{object.bouquet}}
+    {% endautoescape %}
+  </div>
+  
+  <div class="infoAward">
+  <div class="weinInfo">
+    {% if object.geschmack %}
+    Geschmacksrichtung: {{object.geschmack}}</br>
+    {% endif %}
+    Restsüße: {{object.suesse}} g/l</br>
+    Gesamtsäure: {{object.sauere}} g/l</br>
+    Alkoholgehalt: {{object.alk}} % vol.</br>
+    Nennvolumen: {{object.vol}} l</br>
+    Preis/l: {{object.unit_price|div:object.vol}} €</br>
+<div class="weininfoZusatz">
+    {% if object.sulfite %}Enthält Sulfite{% endif %}{% if object.sulfite and object.apnr %} • {% endif %}{% if object.apnr %}AP-NR: {{object.apnr}}  {% endif %}
+</div>
+
+{% if object.listed = True%}
+    <div class="weinInfoMwSt">
+    {% if object.active %}
+    <form method="post" action="{% url 'cart' %}">{% csrf_token %}
+      <input type="hidden" name="add_item_id" value="{{object.pk}}">
+      <input type="hidden" name="add_item_quantity" value="1">
+      <input type="submit" value="{{object.unit_price}} € -> Warenkorb" class="warenkorbButton">
+    </form>
+
+
+    {% else %}
+    <div class="ausgetrunken">Ausgetrunken</div>
+
+
+    {% endif %}
+    
+      INKL. 19% MWST., ZZGL. VERSAND
+    </div>
+{%endif%}
+
+  </div>
+
+    {% if object.auszeichnung.all%}
+  <div class="awardDescription">
+    Ausgezeichnet mit 
+    {% for award in object.auszeichnung.all %}
+    {% if forloop.first %}
+    &raquo;{{award.titel}}&laquo;, {{award.veranstalter}}</br>
+    {%endif%}
+    {% if not forloop.first %}
+    Und &raquo;{{award.titel}}&laquo;, {{award.veranstalter}}</br>
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% endif %}
+</div>
+    
+
+
+
+
+  </div>
+
+</div>
+{% if cart.items.all %}
+
+<div class="miniwarenkorb">
+<h2>Warenkorb <a href="{% url 'cart' %}">Öffnen</a></h2>
+<div class="produkte">
+{% for item in cart.items.all %}
+
+<span>{{item.quantity}} &times; {{item.product}}, {{item.product.jahrgang}}</span>
+
+{% endfor %}
+</div>
+<h2>Summe: 
+  {{cart.subtotal_price}} €</br>
+INKL. 19% MWST., ZZGL. VERSAND
+</h2>
+
+<a href="{% url 'checkout_selection' %}" class="warenkorbButton">Zur Kasse</a>
+</div>
+
+{% endif %}
+{% endblock %}
+

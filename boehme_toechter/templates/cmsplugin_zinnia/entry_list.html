@@ -1,0 +1,85 @@
+{% load i18n %}
+
+
+{% for object in entries %}
+  
+{% if object.categories.all|length %}
+{% with category=object.categories.all.0 %}
+
+{% if category.title == 'Galerie' %}
+
+<div class="blogeintrag gallerie">
+
+  <a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+{% include object.content_template with object_content=object.html_content|truncatewords_html:1|safe continue_reading=1 %}
+</a>
+</div>
+
+{% elif category.title == 'Aktuelles' %}
+<div class="blogeintrag aktuelles">
+
+<a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+  {% include object.content_template with object_content=object.html_content|truncatewords_html:0|safe continue_reading=1 %}
+</a>
+
+</div>
+
+{% elif category.title == 'Marika in USA' %}
+<div class="blogeintrag marika">
+
+<a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+  {% include object.content_template with object_content=object.html_content|truncatewords_html:0|safe continue_reading=1 %}
+</a>
+
+</div>
+
+{% elif category.title == 'Presse' %}
+<div class="blogeintrag presse">
+
+<a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+  {% include object.content_template with object_content=object.html_content|truncatewords_html:0|safe continue_reading=1 %}
+</a>
+
+</div>
+
+
+
+{% else %}
+
+
+
+
+
+<div class="blogeintrag default">
+
+<a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+  {% include object.content_template with object_content=object.html_content|truncatewords_html:0|safe continue_reading=1 %}
+</a>
+
+</div>
+
+{% endif %}
+  
+{% endwith %}
+{% else %}
+
+
+
+<div class="blogeintrag default">
+
+<a href="{{ object.get_absolute_url }}" title="{{ object.title }}" rel="bookmark">
+  {% include object.content_template with object_content=object.html_content|truncatewords_html:0|safe continue_reading=1 %}
+</a>
+</div>
+
+{% endif %}
+
+
+
+
+{% empty %}
+<div>
+  {% trans "No entries yet." %}
+</div>
+{% endfor %}
+

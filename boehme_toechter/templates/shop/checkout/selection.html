@@ -1,0 +1,76 @@
+{% extends "shop/base.html" %}
+
+{% block body %}
+<div class="warenkorbContainer" >
+  <div class="warenkorb">
+
+    <h2><span><a href="../cart/">Warenkorb</a> ></span> Versand- und Rechnungsinformationen</h2>
+
+    <form method="POST">
+      {% csrf_token %}
+      {% if shipping_address.errors.items or billing_address.errors.items%}
+      <h2 class="pleasecorrect">Bitte korrigieren bzw. ergänzen Sie die markierten Felder.</h2>
+      {%endif%}
+      <div class="lieferadresse">
+        <h2>Lieferadresse</h2>
+        {% for field in shipping_address %}
+        {% if field.errors %}
+        <script type="text/javascript">
+        $(document).ready(function () {
+         $('#{{ field.id_for_label }}').css('border-color','rgb(177,5,5)');
+       })
+        </script>
+        {% endif %}
+        {{ field.label_tag }} {{ field }}
+        {% endfor %}
+        <div class="seperateBilling">Separate Rechnungsadresse</div>
+      </div>
+      <div class="lieferadresse" id="rechnungsadresse">
+        <!-- <h2>Separate Rechnungsadresse</h2> -->
+        {% for field in billing_address %}
+        {% if field.errors %}
+        <script type="text/javascript">
+        $(document).ready(function () {
+         $('#{{ field.id_for_label }}').css('border-color','rgb(177,5,5)');
+       })
+        </script>
+        {% endif %}
+        {{ field.label_tag }} {{ field }}
+        {% endfor %}
+      </div>
+      <div class="hidden" >
+        <h2>Gewünschte Versand- und Zahlungsart</h2>
+        {{ billing_shipping_form }}
+      </div>
+
+
+
+      <button id="okay" type="submit" class="warenkorbButton">ok</button>
+    </form>
+    <a id="weitershoppenright"class="warenkorbButton"href="{% url 'product_list' %}">weiter einkaufen</a> 
+
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function () {
+  if ($('#id_ship-seperateBilling').is(':checked')) {
+    $('#rechnungsadresse').css('display', 'block')
+  }
+  else {
+    $('#rechnungsadresse').css('display', 'none') 
+  }
+})
+</script>
+<script type="text/javascript">
+$('#id_ship-seperateBilling').click(function(){
+  if (this.checked) {
+    $('#rechnungsadresse').css('display', 'block')
+  }
+  else {
+    $('#rechnungsadresse').css('display', 'none') 
+  }
+}) 
+</script>
+
+{% endblock %}

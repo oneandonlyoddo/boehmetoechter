@@ -1,0 +1,58 @@
+{% extends "shop/base.html" %}
+{% load url from future %}
+{% block body %}
+<div class="shopcontainer">
+
+
+  <div class="produktbildcontainer">
+    <div class="produktbild">
+   <img src="{{MEDIA_URL}}{{object.img}}" alt="{{object.get_name}} - Weingut Böhme Töchter Produktbild"> 
+   </div>
+   {% if object.active %}
+   {% else %}
+   <div class="produktlabel">
+   <img src="{{STATIC_URL}}img/ausgetrunken-large.png" alt="{{object.get_name}} ist derzeit nicht verfügbar"> 
+   </div>
+   {% endif %}
+   {% if object.auzeichnung %}
+   <div class="produktlabel">
+   <img src="{{STATIC_URL}}img/preisgekroent-large.png" alt="{{object.auzeichnung}}"> 
+   </div>
+   {% else %}
+   {% endif %}
+   </div>
+   <div class="produktdetail" >
+  <h1><span>{{object.get_name}}</span></h1>
+  <h1>{{object.lage}},</h1>
+  <h1>{{object.jahrgang}}</h1>
+  <p class="award">{{object.auszeichnung}}</p>
+  <p>{{object.bouquet}}</br>
+  Gesamtsäure: {{object.sauere}} g/l</br>
+  Restsüße: {{object.suesse}} g/l</br>
+  Alkoholgehalt: {{object.alk}} %</br>
+  Nennvolumen: {{object.vol}} l</p>
+  
+  {% if object.active %}
+  <form method="post" action="{% url 'cart' %}">{% csrf_token %}
+  <input type="hidden" name="add_item_id" value="{{object.pk}}">
+  <input type="hidden" name="add_item_quantity" value="1">
+  <input type="submit" value="{{object.unit_price}} -> Warenkorb" class="warenkorbButton">
+  </form>
+
+  {% endif %}
+ 
+
+
+  {% if object.category %}
+  {{object.category.name}}
+  {% else %}
+  
+  {% endif %}
+
+
+  
+</div>
+
+</div>
+{% endblock %}
+

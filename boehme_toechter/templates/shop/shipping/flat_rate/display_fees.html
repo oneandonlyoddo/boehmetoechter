@@ -1,0 +1,188 @@
+{% extends "shop/base.html" %}
+{% load url from future %}
+{% load mathe %}
+{% load shop_tags %}
+{% order my_order %}
+
+
+
+
+{% block body %}
+
+
+
+<div class="warenkorbContainer" >
+	<div class="warenkorb">
+		<h2><span><a href="../../cart/">Warenkorb</a> > <a href="../../checkout/">Versand- und Rechnungsinformationen</a> ></span> Zusammenfassung</h2>
+		{% load i18n %}
+
+	
+		
+		<table class="summarytable">
+
+			<tbody class="warenkorbitems">
+				{% for item in order.items.all %}
+				<tr>
+					<td>{{item.quantity}} &times; {{item.product_name}}, {{item.product.jahrgang}}</td>
+					<td colspan="2">&nbsp;</td>
+					<td class="preis">{{item.line_subtotal }} €</td>
+				</tr>
+
+				{% endfor %}
+			</tbody>
+		</table>
+
+			<table class="warenkorbitems">
+				{% with netto=order.order_subtotal|div:1.19 %}
+          		{% with 19prozent=netto|multStrConV:0.19 brutto=order.order_total|addFloat:shipping_costs%}
+				
+				
+           
+
+        
+        <tr>
+              
+              <td>Versand mit DHL</td>
+              <td colspan="2">&nbsp;</td>
+              <td class="preis">
+                {% ifequal shipping_costs 0.00 %}
+                gratis
+                {% else %}
+                {{shipping_costs }} €
+                {% endifequal %}
+                
+              </td>
+          </tr>
+       <tr class="preisfett">
+					
+					<td colspan="3">Bruttosumme</td>
+					<td class="preis"colspan="2">{{brutto}} €</td>
+				</tr>
+
+            <tr>
+              
+              <td>inkl. 19% Mwst.</td>
+              <td colspan="2">&nbsp;</td>
+              <td class="preis">
+                
+                {{ 19prozent}} €
+                
+              </td>
+              
+            </tr>
+            
+              
+          
+            {% endwith %}
+            {% endwith %}
+
+           
+				
+			</table>
+		
+<div class="lieferadresse">
+		<table >
+			<tr>
+				<td style="vertical-align:top;">
+					<h2>Lieferadresse</h2>
+				</td>
+				<td style="vertical-align:top;">
+					<h2>Rechnungsadresse</h2>
+				</td>
+
+			</tr>
+			<tr>
+				<td>
+					{{order.shipPrename}} {{order.shipSurname}} 
+				</td>
+				<td>
+					{{order.billPrename}} {{order.billSurname}} 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					{{order.shipStreet}} {{order.shipNr}} 
+				</td>
+				<td>
+					{{order.billStreet}} {{order.billNr}} 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					{{order.shipZipCode}} {{order.shipTown}} 
+				</td>
+				<td>
+					{{order.billZipCode}} {{order.billTown}}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					{{order.shipLand}} 
+				</td>
+				<td>
+					{{order.billLand}}
+				</td>
+			</tr>
+			<tr>
+				<td>
+					{{order.emailForConfirm}}
+				</td>
+				<td>
+					&nbsp;
+				</td>
+
+			</tr>
+			{% if order.shipTel or order.billTel%}
+			<tr>
+				<td>
+					{% if order.shipTel%}
+					Tel: {{order.shipTel}}
+					{% else %}
+					&nbsp;
+					{% endif %}
+				</td>
+				<td>
+					{% if order.billTel%}
+					Tel: {{order.billTel}}
+					{% else %}
+					&nbsp;
+					{% endif %}
+				</td>
+		
+			</tr>
+			{% endif %}
+			{% if order.shipFax or order.billFax%}
+			<tr>
+				<td>
+					{% if order.shipFax%}
+					Fax: {{order.shipFax}}
+					{% else %}
+					&nbsp;
+					{% endif %}
+				</td>
+				<td>
+					{% if order.billFax%}
+					Fax: {{order.billFax}}
+					{% else %}
+					&nbsp;
+					{% endif %}
+				</td>
+		
+			</tr>
+			{% endif %}
+		</table>
+
+
+		
+
+		</div>
+		<p class="zahlungsart">Zahlungsart: Rechnung</p>
+		<p class="acceptAGB">Mit abschließen der Bestellung akzeptieren Sie unsere <a href="../../../agb/" target="_blank">AGB</a>.</p>
+		<a id="bestellen" class="warenkorbButton"href="{% url 'flat_process' %}">Kostenpflichtig bestellen</a>
+		<a id="weitershoppenright"class="warenkorbButton"href="{% url 'product_list' %}">weiter einkaufen</a>
+
+
+
+	</div>
+</div>
+{% endblock %}

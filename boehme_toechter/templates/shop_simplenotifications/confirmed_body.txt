@@ -1,0 +1,30 @@
+Bestellung vom: {{order.created}}
+{{order}}
+
+LIEFERADRESSE
+{{order.shipPrename}} {{order.shipSurname}}
+{{order.shipStreet}} {{order.shipNr}} 
+{{order.shipZipCode}} {{order.shipTown}} 
+{{order.shipLand}}
+{{order.emailForConfirm}}{% if order.shipTel %}
+Tel: {{order.shipTel}}{% endif %}{% if order.shipFax %}
+Fax: {{order.shipFax}}{% endif %} 
+
+RECHNUNGSADRESSE
+{{order.billPrename}} {{order.billSurname}} 
+{{order.billStreet}} {{order.billNr}}
+{{order.billZipCode}} {{order.billTown}}
+{{order.billLand}}
+{{order.emailForConfirm}}{% if order.billTel %}
+Tel: {{order.billTel}}{% endif %}{% if order.billFax %}
+Fax: {{order.billFax}}{% endif %} 
+
+------------------------------------------------------------
+POS	MENGE	PREIS	SUMME		ARTIKEL
+------------------------------------------------------------{% for item in order.items.all %}
+{{forloop.counter}}	{{item.quantity}}	{{item.unit_price}}	{{item.line_total }}	{{item.product_name}}, {% if item.product.geschmack%}{{item.product.geschmack}}, {% endif %}{{item.product.jahrgang}}{% endfor %}
+------------------------------------------------------------
+Warenwert: {{order.order_subtotal}} Euro
+Versandkosten: {{order.shipping_costs }} Euro
+Gesamt: {{order.order_total}} Euro
+------------------------------------------------------------

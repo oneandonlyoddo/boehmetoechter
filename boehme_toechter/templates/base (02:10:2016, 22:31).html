@@ -1,0 +1,95 @@
+{% load cms_tags menu_tags sekizai_tags random_image %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+ 
+ <!--    
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"type="text/javascript"></script>
+  -->
+<script src="{{ STATIC_URL }}js/jquery-1.10.2.min.js"type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/lightbox-2.6.min.js"type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js"type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/resize.js"type="text/javascript"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46008413-1', 'boehme-toechter.de');
+  ga('send', 'pageview');
+
+</script>
+{% if request.current_page.get_title == "Kontakt" %}
+<script src="https://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+<script src="{{ STATIC_URL }}js/googlemaps.js"type="text/javascript"></script>
+{% endif %}
+
+{% if request.current_page.get_title == "Freyburger Edelacker" or request.current_page.get_title == "Freyburger Mühlberg" or request.current_page.get_title == "Dorndorfer Rappental"%}
+<script src="{{ STATIC_URL }}js/glossarTooltips.js"type="text/javascript"></script>
+{% endif %}
+
+
+
+
+<link rel="stylesheet" href="https://s3.amazonaws.com/fonts.typotheque.com/WF-006323-002539.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}reset.css"/>
+
+<!--[IF !IE]> -->		
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}style.css"/>
+<!-- <![ENDIF]-->
+<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}lightbox.css"/>
+ <!--[IF gte IE 7]>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}ie.css"/>
+  <![endif]-->
+
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css"/>
+       {% if request.current_page.get_title == "Home" %}
+      <title>Böhme &amp; Töchter</title>
+      {% elif request.current_page.get_title == null%}
+        {% if object.get_name %}
+      <title>Shop - {{object.get_name}} - Böhme &amp; Töchter</title>
+      {% else %}
+      <title>Shop - Böhme &amp; Töchter</title>
+      {% endif %}
+      {% else %}
+      <title>{{ request.current_page.get_title }} - Böhme &amp; Töchter</title>
+      {% endif %}
+      {% render_block "css" %}
+
+  
+<style type="text/css">
+<!--
+.homecontainer{
+background: url({{ MEDIA_URL }}{% random_image "HomeBackgrounds/"%}) no-repeat center center;
+ -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+  width:100%;
+
+}
+-->
+</style>
+     
+     
+  </head>
+  <body>
+      {% cms_toolbar %}
+   
+      {% block base_content %}{% endblock %}
+
+      {% render_block "js" %}
+       <script type="text/javascript">
+    $(window).resize(function() {
+      Resize();
+    });
+  </script>
+  </body>
+</html>

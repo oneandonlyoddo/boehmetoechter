@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+{% load menu_tags cms_tags %}
+
+{% block base_content %}
+
+
+ 
+
+
+	
+{% block body %}
+    {% endblock %}
+
+
+<div class="menucontainerAlt">
+{% show_menu 1 2 0 100 %}
+     
+     <div class="smallmenu">
+{% show_menu_below_id "smallmenu" 0 0 0 100 %}
+     </div>
+     </div>
+     
+     <div class="logoRechts">
+  <div class="logoRechtsInner">
+  <a href="http://boehme-toechter.de"><img src="{{ STATIC_URL }}img/bt-schriftzug-schwarz.png"/></a>
+</div>
+</div>
+{% endblock %}
+
+ 

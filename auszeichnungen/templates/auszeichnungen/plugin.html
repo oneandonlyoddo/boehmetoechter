@@ -1,0 +1,22 @@
+
+<h3>Auszeichnungen</h3>
+{% if awards %}
+    
+    {% for award in awards %}
+        <h2>{{ award.jahr }}</h2>
+        <div class="auszeichnung">
+        <h3>{{ award.name }}</h3>
+        {% for titel in award.auszeichnung_set.all%}
+        
+        <h2>{{titel.titel}}</h2>
+        {% for wein in titel.wein_set.all%}
+        <p> {{wein.jahrgang}}er <a href="{% url 'product_list' %}{{wein.slug}}">{{wein.name}}</a>, {{wein.get_lage_display}}</p>
+        {%endfor%}
+        {% endfor %}
+        </div>
+    {% endfor %}
+    
+{% else %}
+    <p>Bisher wurden keine Auszeichnungen eingetragen</p>
+{% endif %}
+

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load menu_tags cms_tags %}
+
+ {% block base_content %}
+ <div class="newscontainer">
+
+    </div>
+    <div class="weingutscrollcontent">
+    	<div class="aktuelleswrapper">
+   <div class="blogeintraege">
+  
+{% block content %}{% endblock %}
+{% block sidebar %}{% endblock %}
+</div>  
+</div>
+
+</div>
+
+<div class="logoRechts"><div class="logoRechtsInner">
+  <a href="http://boehme-toechter.de"> <img src="{{ STATIC_URL }}img/bt-schriftzug-schwarz.png"></a>
+</div>
+</div>
+<div class="menucontainer">
+{% show_menu 1 1 0 100 %}
+     
+<div class="smallmenu">
+{% show_menu_below_id "smallmenu" 0 0 %}
+     </div>
+     </div>
+{% endblock %}

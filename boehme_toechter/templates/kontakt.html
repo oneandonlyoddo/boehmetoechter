@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load menu_tags cms_tags %}
+
+{% block base_content %}
+<div class="kontaktcontainer">
+  <div class="kontaktcontainerinner">
+ <div class="kontakt">
+  <div class="adresse">
+  {% placeholder Kontaktadresse %}
+<p><a href="&#x6d;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#x69;&#110;&#x66;&#111;&#x40;&#98;&#x6f;&#101;&#x68;&#109;&#x65;&#45;&#x74;&#111;&#x65;&#99;&#x68;&#116;&#x65;&#114;&#x2e;&#100;&#x65;"> &#x69;&#110;&#x66;&#111;&#x40;&#98;&#x6f;&#101;&#x68;&#109;&#x65;&#45;&#x74;&#111;&#x65;&#99;&#x68;&#116;&#x65;&#114;&#x2e;&#100;&#x65; </a></p>
+  </div>
+  <div id="map_div"></div>
+
+
+ 
+
+ </div>
+<div class="kontaktformular">
+  <div class="kontaktinner">
+  {% placeholder Kontaktformular %}
+</div>
+  </div>
+  </div>
+</div>
+<div class="logoRechts"><div class="logoRechtsInner">
+  <a href="http://boehme-toechter.de"> <img src="{{ STATIC_URL }}img/bt-schriftzug-schwarz.png"></a>
+</div>
+</div>
+<div class="menucontainerAlt">
+{% show_menu 1 100 0 100 %}
+     
+     <div class="smallmenu">
+{% show_menu_below_id "smallmenu" %}
+     </div>
+     </div>
+{% endblock %}

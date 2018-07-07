@@ -1,0 +1,48 @@
+{% load i18n  placeholder_tags %}
+{% regroup events|dictsort:"start" by start as events_list %}
+{% if events_list%}
+ <div class="termineborder"></div>
+<h2>Termine</h2>
+<div class="events">
+	<!-- {% for termine in events %}
+		{% if termin.is_mutiple_days %}
+	<h2>{{ termin.start|date:"d"  }} - {{ termin.end|date:"d" }}.{{ termin.end|date:"m" }}.{{ termin.end|date:"Y" }} 
+	{% if termin.time %}
+	Ab {{termin.time}} Uhr
+	{% endif %}
+	</h2>
+	{% else %}
+	<h2>{{ termin.start}} {% if termin.time %}
+	Ab {{termin.time}} Uhr
+	{% endif %}</h2>
+	{% endif %}
+	{% render_placeholder termin.description %}
+	{% endfor %}
+
+	{{ events }}
+ -->
+
+
+	
+
+	
+
+
+	{% for dates in events_list %}
+	{% for event in dates.list %}
+	{% if event.is_mutiple_days %}
+	<h2>{{ event.start|date:"d"  }}. - {{ event.end|date:"d" }}.{{ event.end|date:"m" }}.{{ event.end|date:"Y" }} 
+	{% if event.time %}
+	Ab {{event.time}} Uhr
+	{% endif %}
+	</h2>
+	{% else %}
+	<h2>{{ event.start}} {% if event.time %}
+	Ab {{event.time}} Uhr
+	{% endif %}</h2>
+	{% endif %}
+	{% render_placeholder event.description %}
+	{% endfor %}
+	{% endfor %}
+</div>
+	{% endif %}

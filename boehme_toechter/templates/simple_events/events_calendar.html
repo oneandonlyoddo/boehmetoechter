@@ -1,0 +1,27 @@
+{% load i18n  placeholder_tags %}
+
+{% regroup events|dictsort:"start" by start as events_list %}
+{% if events_list%}
+ <div class="termineborder"></div>
+<h2>Termine</h2>
+<div class="events">
+	{% for dates in events_list %}
+	{% for event in dates.list %}
+	{% if event.is_mutiple_days %}
+	<a href='{% url "events_detail" event.start|date:"Y" event.start|date:"n" event.start|date:"d" event.slug %}' title="{{ event.name }}"><h2>{{ event.start|date:"d"  }} - {{ event.end|date:"d" }}.{{ event.end|date:"m" }}.{{ event.end|date:"Y" }} 
+	{% if event.time %}
+	Ab {{event.time}} Uhr
+	{% endif %}
+	</h2></a>
+	{% else %}
+	<a href='{% url "events_detail" event.start|date:"Y" event.start|date:"n" event.start|date:"d" event.slug %}' title="{{ event.name }}"><h2>{{ event.start}} {% if event.time %}
+	Ab {{event.time}} Uhr
+	{% endif %}</h2></a>
+	{% endif %}
+	<!-- {% render_placeholder event.description %} -->
+	{{ event.name }}
+	<a class = "readmore" href='{% url "events_detail" event.start|date:"Y" event.start|date:"n" event.start|date:"d" event.slug %}' title="{{ event.name }}">Mehr erfahren...</a>
+	{% endfor %}
+	{% endfor %}
+</div>
+	{% endif %}

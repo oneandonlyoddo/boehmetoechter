@@ -1,0 +1,1 @@
+PYTHONPATH=/home/boehme/django-boehme_toechter:/home/boehme/boehme_toechter:/home/boehme/boehme_toechter/boehme_toechter:. python manage.py runserver 127.0.0.1:62145

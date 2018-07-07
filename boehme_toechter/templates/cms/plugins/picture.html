@@ -1,0 +1,10 @@
+<span class="plugin_picture{% if picture.float %} align-{{ picture.float }}{% endif %}">
+{% if link %}<a href="{{ link }}">{% endif %}
+<img src="{{ picture.image.url }}" alt="{{ picture.alt }}"{% if picture.longdesc %} title="{{ picture.longdesc }}"{% endif %} />
+{% if link %}</a>{% endif %}
+{% if request.current_page.get_title == "Weingut" %}
+<p class="bildunterschrift">{{ picture.alt }}</p>
+{% else %}
+<p class="bildunterschriftBlog">{{ picture.alt }}</p>
+{% endif %}
+</span>

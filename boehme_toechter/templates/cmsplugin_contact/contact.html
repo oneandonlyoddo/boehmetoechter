@@ -1,0 +1,98 @@
+{% load i18n %}
+
+{% if form %}
+<!-- <h2>oder schreiben Sie uns</h2> -->
+	<form action="." method="post">
+		 {% if form.email.errors or form.subject.errors or form.content.errors%}
+      <h2>Bitte korrigieren bzw. ergänzen Sie die markierten Felder.</h2>
+      {%else%}
+      <h2>oder schreiben Sie uns</h2>
+      {%endif%}
+
+		<div{% if form.email.errors %} class="error"{% endif %}>
+			<label class="contact_field">{{ contact.email_label }}</label>
+				{{ form.email }}
+			{% if form.email.errors %}
+				{% for error in form.email.errors %}
+					<span class="error_msg">{{ error }}</span>
+				{% endfor %}
+			{% endif %}
+		</div>
+		
+		<div{% if form.subject.errors %} class="error"{% endif %}>
+			<label class="contact_field">{{ contact.thename_label }}</label>
+				{{ form.thename }}
+			{% if form.subject.errors %}
+				{% for error in form.subject.errors %}
+					<span class="error_msg">{{ error }}</span>
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		<div{% if form.subject.errors %} class="error"{% endif %}>
+			<label class="contact_field">{{ contact.telnumber_label }}</label>
+				{{ form.telnumber }}
+			{% if form.subject.errors %}
+				{% for error in form.subject.errors %}
+					<span class="error_msg">{{ error }}</span>
+				{% endfor %}
+			{% endif %}
+		</div>
+
+		<div{% if form.content.errors %} class="error"{% endif %}>
+			<label class="contact_field">{{ contact.content_label }}</label>
+				{{ form.content }}
+			{% if form.content.errors %}
+				{% for error in form.content.errors %}
+					<span class="error_msg">{{ error }}</span>
+				{% endfor %}
+			{% endif %}
+		</div>
+		{% if form.recaptcha_challenge_field %}
+			<div{% if form.recaptcha_response_field.errors %} class="error"{% endif %}>
+				{{ form.recaptcha_challenge_field }}
+				{% if form.recaptcha_theme == "custom" %}
+					<div id="recaptcha_widget" style="display:none">
+					
+					<div id="recaptcha_image"></div>
+					<span class="recaptcha_only_if_incorrect_sol error_msg">{% trans "Incorrect please try again" %}</span>
+					
+					<label>
+						<span class="recaptcha_only_if_image">{% trans "Enter the words above:" %}</span>
+						<span class="recaptcha_only_if_audio">{% trans "Enter the numbers you hear:" %}</span>
+					</label>
+					
+					<input type="text" id="recaptcha_response_field" name="recaptcha_response_field" />
+					
+					<div><a href="javascript:Recaptcha.reload()">{% trans "Get another CAPTCHA" %}</a></div>
+					<div class="recaptcha_only_if_image"><a href="javascript:Recaptcha.switch_type('audio')">{% trans "Get an audio CAPTCHA" %}</a></div>
+					<div class="recaptcha_only_if_audio"><a href="javascript:Recaptcha.switch_type('image')">{% trans "Get an image CAPTCHA" %}</a></div>
+					
+					<div><a href="javascript:Recaptcha.showhelp()">{% trans "Help" %}</a>
+					
+					</div>
+				{% endif %}
+			
+				{% if form.recaptcha_response_field.label %}<label class="contact_field">{{ form.recaptcha_response_field.label }}</label>{% endif %}
+				{{ form.recaptcha_response_field }}
+			{% if form.recaptcha_response_field.errors %}
+				{% for error in form.recaptcha_response_field.errors %}
+					<span class="error_msg">{% trans error %}</span>
+				{% endfor %}
+			{% endif %}
+			</div>
+		{% endif %}
+		
+		{% if form.accept_terms %}
+			{{ form.accept_terms }}
+		{% endif %}
+		<div>
+			<input type="submit"{% if contact.submit %} value="{{ contact.submit }}"{% endif %} />
+		</div>
+		
+		{% csrf_token %}
+	</form>
+
+{% else %}
+	{{ contact.thanks|safe }}
+{% endif %}

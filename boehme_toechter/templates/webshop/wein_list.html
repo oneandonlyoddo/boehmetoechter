@@ -1,0 +1,110 @@
+{% extends "shop/base.html" %}
+{% load url from future %}
+{% load easy_thumbnails_tags %}
+{% load mathe %}
+
+
+{% block body %}
+
+<div class="shopcontainer">
+ 
+  <a class="kattab tabActive" href="#">Alle Anzeigen</a>
+  <a class="kattab" id="gutswein" href="/shop/products/kategorie/gutswein/">Gutsweine</a>
+  <a class="kattab" id="ortswein" href="/shop/products/kategorie/ortswein/">Ortsweine</a>
+  <a class="kattab" id="lagenwein" href="/shop/products/kategorie/lagenwein/">Lagenweine</a>
+
+  
+  <div class="produktliste">
+
+    {% for object in object_list %}
+   <div class="produkt">
+     
+     <!-- <div class="produktHover"></div>  -->
+     <a class ="produktHover" href="{% url 'product_detail' object.slug %}"></a>
+
+ <div class="produktbildlist">
+<img src="{% thumbnail object.img 96x260 %}" alt="{{object.get_name}} - Weingut Böhme Töchter Produktbild" />
+
+        <!-- <img src="{{MEDIA_URL}}{{object.img}}" alt="{{object.get_name}} - Weingut Böhme Töchter Produktbild"> -->
+        {% if object.auszeichnung.all %}
+
+        <div class="produktawardsmall">
+         <img src="{{STATIC_URL}}img/preisgekroent-large.png" alt="{{object.get_name}} ist Preisgekrönt"> 
+       </div>
+
+       {% endif %}
+</div>
+<div class="produktdatalist">
+
+
+        <a href="{% url 'product_detail' object.slug %}"><p>{{object.get_name}}</p></a>
+
+
+        <p class="produktlisteextradata">{{object.jahrgang}}{% if object.geschmack %}&emsp;{{object.geschmack}}{% endif %}</p>
+       {% if object.active %}
+
+
+       <form method="post" action="{% url 'cart' %}">{% csrf_token %}
+        <input type="hidden" name="add_item_id" value="{{object.pk}}">
+        <input type="hidden" name="add_item_quantity" value="1">
+        <input type="submit" value="{{object.unit_price}} € -> Warenkorb" class="warenkorbButton">
+      </form>
+
+
+
+      {% else %}
+      <div class="ausgetrunken">Ausgetrunken</div>
+      {% endif %}
+
+</div>
+    
+  </div>
+  {% endfor %}
+  
+
+</div>
+
+
+
+</div>
+{% if cart.items.all %}
+
+<div class="miniwarenkorb">
+<h2>Warenkorb <a href="{% url 'cart' %}">Öffnen</a></h2>
+<div class="produkte">
+{% for item in cart.items.all %}
+
+<span>{{item.quantity}} &times; {{item.product}}, {{item.product.jahrgang}}</span>
+
+{% endfor %}
+</div>
+<h2>Summe: 
+  {{cart.subtotal_price}} €</br>
+INKL. 19% MWST., ZZGL. VERSAND
+</h2>
+
+
+<a href="{% url 'checkout_selection' %}" class="warenkorbButton">Zur Kasse</a>
+</div>
+
+{% endif %}
+
+<script type="text/javascript">
+
+
+function addItem (id) {
+  
+
+  $.ajax({
+        type: 'POST',
+        url: '{% url "cart" %}',
+        data: {'add_item_id': id, 'csrfmiddlewaretoken': '{{csrf_token}}', 'add_item_quantity':'1'},
+      });
+  }
+</script>
+<script type="text/javascript">
+function setActiveKat(){
+$('.selected a[href*="http://boehme-toechter.de/shop/products"][class!="noselect"]').addClass('selectedMenuKat');
+}$(document).ready(setActiveKat);
+</script>
+{% endblock %}

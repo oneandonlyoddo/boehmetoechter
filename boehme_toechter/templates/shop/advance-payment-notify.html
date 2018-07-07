@@ -1,0 +1,20 @@
+{% extends "shop/base.html" %}
+{% load url from future %}
+
+{% block body %}
+<div class="warenkorbContainer" >
+
+
+  
+  <div class="thanksfororder">
+  <h2>Vielen Dank für ihre Bestellung!</h2>
+  <p>Eine Bestätigung Ihres Auftrags erreicht Sie in Kürze per E-Mail. Wir bereiten Ihre Weine derweil für den Versand vor.</p>
+  <div class="karton">
+  <img src="{{STATIC_URL}}img/weinkiste.jpg">
+  <p id="greets"> Schöne Grüße</br> Ihre Familie Böhme aus Gleina</p>
+  </div>
+  <a href="{% url 'product_list' %}" id="close"class="warenkorbButton">Schliessen</a>
+  </div>
+
+</div>
+{% endblock %}

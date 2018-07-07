@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load cms_tags menu_tags random_image%}
+{% block base_content %}
+<div class="homecontainer">
+	{% placeholder template_1_content %}
+	<div class="logoHomeContainer">
+		<div class="logoHome">
+			<img src="{{ STATIC_URL }}img/bt-schriftzug.png"/>
+		</div>
+	</div>
+</div>
+<div class="menucontainerHome">
+	{% show_menu 1 1 0 100 %}
+	<div class="smallmenu">
+		{% show_menu_below_id "smallmenu" 0 0 %}
+	</div>
+</div>
+{% endblock %}
+
+

@@ -1,0 +1,55 @@
+AUFTRAGSBESTÄTIGUNG
+Bestellung vom: {{order.created}}
+{{order}}
+
+LIEFERADRESSE
+{{order.shipPrename}} {{order.shipSurname}}
+{{order.shipStreet}} {{order.shipNr}} 
+{{order.shipZipCode}} {{order.shipTown}} 
+{{order.shipLand}}
+{{order.emailForConfirm}}{% if order.shipTel %}
+Tel: {{order.shipTel}}{% endif %}{% if order.shipFax %}
+Fax: {{order.shipFax}}{% endif %} 
+
+RECHNUNGSADRESSE
+{{order.billPrename}} {{order.billSurname}} 
+{{order.billStreet}} {{order.billNr}}
+{{order.billZipCode}} {{order.billTown}}
+{{order.billLand}}
+{{order.emailForConfirm}}{% if order.billTel %}
+Tel: {{order.billTel}}{% endif %}{% if order.billFax %}
+Fax: {{order.billFax}}{% endif %} 
+
+------------------------------------------------------------
+POS	MENGE	PREIS	SUMME		ARTIKEL
+------------------------------------------------------------{% for item in order.items.all %}
+{{forloop.counter}}	{{item.quantity}}	{{item.unit_price}}	{{item.line_total }}	{{item.product_name}}, {% if item.product.geschmack%}{{item.product.geschmack}}, {% endif %}{{item.product.jahrgang}}{% endfor %}
+------------------------------------------------------------
+Warenwert: {{order.order_subtotal}} Euro
+Versandkosten: {{order.shipping_costs }} Euro
+Gesamt: {{order.order_total}} Euro
+------------------------------------------------------------
+
+Vielen Dank für Ihre Bestellung. Wir bereiten Ihre Weine in Kürze für den Versand vor. Mit dieser E-Mail ist der Kaufvertrag geschlossen. Es gelten unsere AGB, die Sie am Ende dieser E-Mail finden.
+
+Schöne Grüße
+
+Ihr Weingut Böhme & Töchter 
+Ölgasse 11
+06632 Gleina
+Tel.: +49 034462 22043
+info@boehme-toechter.de 
+
+*****************************************************************
+
+Allgemeine Geschäftsbedingungen
+
+Alle Angebote sind freibleibend und unverbindlich. 
+Alle Weine ohne Geschmacksangabe befinden sich im (weinrechtlich) trockenen Bereich. 
+Die Bezeichnung Silber bzw. Gold bezieht sich auf den jeweils erreichten Medaillenrang bei der Landesweinprämierung von Sachsen-Anhalt. 
+Die Lieferung erfolgt ab 60 Flaschen frei Haus. Bei Liefergrößen zu 18 oder 20 Flaschen berechnen wir 5,00 €, bei kleineren Mengen 9,50 € Versandkosten. Alle Preise verstehen sich inklusive 19 % Mehrwertsteuer. 
+Neukunden bitten wir, in Vorkasse zu gehen oder per Nachnahme zu zahlen. Die Ware bleibt bis zur vollständigen Bezahlung Eigentum des Weingutes. Die der Sendung beiliegende Rechnung ist sofort zur Zahlung fällig. 
+Beanstandungen können nur innerhalb von 10 Tagen nach Erhalt schriftlich geltend gemacht werden. Transportschäden sind sofort bei Erhalt dem Transportunternehmen zu reklamieren. 
+Auskristallisierungen von Weinstein sind eine natürliche Erscheinung und kein Grund zur Beanstandung. 
+Gemäß dem Jugendschutzgesetz § 9 verkauft das Gleinaer Weingut Böhme keine alkoholischen Getränke an Kinder oder Jugendliche unter 16 Jahren. Branntweine werden nicht an Jugendliche unter 18 Jahren abgegeben. Durch das Bestellen und Akzeptieren unsere Allgemeinen Geschäftsbedingungen erklären Sie, dass Sie volljährig und voll geschäftsfähig sind. 
+Erfüllungsort für Lieferungen und Zahlungen ist Gleina bei Freyburg/Unstrut. Gerichtsstand für beide Teile ist Naumburg. Mit dieser Liste verlieren frühere Preislisten ihre Gültigkeit.

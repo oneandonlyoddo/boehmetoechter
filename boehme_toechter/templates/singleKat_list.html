@@ -1,0 +1,127 @@
+{% extends "shop/base.html" %}
+{% load url from future %}
+{% load easy_thumbnails_tags %}
+
+
+
+{% block body %}
+<div class="shopcontainer">
+ 
+  <a class="kattab"  href="../../">Alle Anzeigen</a>
+  <a class="kattab" id="gutswein" href="../../kategorie/gutswein/">Gutsweine</a>
+  <a class="kattab" id="ortswein" href="../../kategorie/ortswein/">Ortsweine</a>
+  <a class="kattab" id ="lagenwein" href="../../kategorie/lagenwein/">Lagenweine</a>
+
+  
+
+
+
+
+  <div class="produktliste">
+    {% if category %}
+    <p class="catdescr">
+{% autoescape off %}
+  
+      {%for cat in category%}
+      {{cat.beschreibung}}
+      {%endfor%}
+{% endautoescape %}
+    </p>
+<div class="separator"></div>
+{%elif art%}
+<p class="catdescr">
+{% autoescape off %}
+  
+      {%for a in art%}
+      {{a.beschreibung}}
+      {%endfor%}
+{% endautoescape %}
+
+    </p>
+    {% endif %}
+
+
+    {% for object in product_list %}
+   
+     <div class="produkt">
+     
+     <!-- <div class="produktHover"></div>  -->
+     <a class ="produktHover" href="{% url 'product_detail' object.slug %}"></a>
+
+ <div class="produktbildlist">
+<img src="{% thumbnail object.img 96x260 %}" alt="{{object.get_name}} - Weingut Böhme Töchter Produktbild" />
+
+        <!-- <img src="{{MEDIA_URL}}{{object.img}}" alt="{{object.get_name}} - Weingut Böhme Töchter Produktbild"> -->
+        {% if object.auszeichnung.all %}
+
+        <div class="produktawardsmall">
+         <img src="{{STATIC_URL}}img/preisgekroent-large.png" alt="{{object.get_name}} ist Preisgekrönt"> 
+       </div>
+
+       {% endif %}
+</div>
+<div class="produktdatalist">
+
+
+        <a href="{% url 'product_detail' object.slug %}"><p>{{object.get_name}}</p></a>
+        <p class="produktlisteextradata">{{object.jahrgang}}{% if object.geschmack %}&emsp;{{object.geschmack}}{% endif %}</p>
+
+       {% if object.active %}
+
+
+       <form method="post" action="{% url 'cart' %}">{% csrf_token %}
+        <input type="hidden" name="add_item_id" value="{{object.pk}}">
+        <input type="hidden" name="add_item_quantity" value="1">
+        <input type="submit" value="{{object.unit_price}} € -> Warenkorb" class="warenkorbButton">
+      </form>
+      {% else %}
+      <div class="ausgetrunken">Ausgetrunken</div>
+      {% endif %}
+</div>
+    
+  </div>
+  {% endfor %}
+  
+
+</div>
+
+
+
+</div>
+{% if cart.items.all %}
+
+<div class="miniwarenkorb">
+<h2>Warenkorb <a href="{% url 'cart' %}">Öffnen</a></h2>
+<div class="produkte">
+{% for item in cart.items.all %}
+
+<span>{{item.quantity}} &times; {{item.product}}, {{item.product.jahrgang}}</span>
+{% endfor %}
+</div>
+<h2>Summe: 
+  {{cart.subtotal_price}} €</br>
+INKL. 19% MWST., ZZGL. VERSAND
+</h2>
+
+<a href="{% url 'checkout_selection' %}" class="warenkorbButton">Zur Kasse</a>
+</div>
+
+
+
+{% endif %}
+
+<script type="text/javascript">
+function setActiveTab(){
+var pathArray = window.location.pathname.split( '/' );
+var l = pathArray.length - 2;
+$("#"+pathArray[l]).addClass("kattab tabActive");
+}
+$(document).ready(setActiveTab);
+</script>
+
+<script type="text/javascript">
+function setActiveKat(){
+$('.selected a[href*="/shop/products/kategorie/' + location.pathname.split("/")[4] + '"][class!="noselect"]').addClass('selectedMenuKat');
+}$(document).ready(setActiveKat);
+</script>
+{% endblock %}

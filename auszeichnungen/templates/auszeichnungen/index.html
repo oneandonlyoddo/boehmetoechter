@@ -1,0 +1,10 @@
+
+{% if alle_auszeichnungen %}
+    <ul>
+    {% for auszeichnung in alle_auszeichnungen %}
+        <li>{{ auszeichnung.beschreibung }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}

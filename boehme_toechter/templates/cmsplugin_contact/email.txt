@@ -1,0 +1,6 @@
+{{ data.content }}
+
+Name: {{ data.thename }}
+{% if data.telnumber %} 
+TelNr: {{ data.telnumber }}
+{% endif %}
